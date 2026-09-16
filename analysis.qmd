@@ -61,3 +61,55 @@ movies |>
        x = "Tomatometer Score",
        y = "Count")
 ```
+
+```{r}
+movies_gap <- movies_clean |>
+  mutate(gap = tomatoMeter - audienceScore)
+
+movies_gap |>
+  select(title, tomatoMeter, audienceScore, gap) |>
+  slice_head(n = 5)
+```
+
+```{r}
+gap_by_genre <- movies |>
+  separate_longer_delim(genre, delim = ", ") |>
+  mutate(gap = tomatoMeter - audienceScore) |>
+  group_by(genre) |>
+  summarize(mean_gap = mean(gap, na.rm = TRUE),
+            movie_count = n()) |>
+  filter(movie_count >= 50) |>
+  arrange(mean_gap)
+
+gap_by_genre
+```
+
+```{r}
+movies_gap |>
+  summarize(mean_gap   = mean(gap),
+            median_gap = median(gap),
+            sd_gap     = sd(gap))
+```
+
+```{r}
+movies_summary <- movies_gap |>
+  summarize(mean_gap = mean(gap, na.rm = TRUE),
+            n = n(),
+            .by = genre) |>
+  filter(n >= 100) |>
+  arrange(mean_gap)
+
+movies_summary
+```
+
+```{r}
+movies_summary |>
+  ggplot(aes(x = mean_gap,
+             y = fct_reorder(genre, mean_gap))) +
+  geom_col() +
+  geom_vline(xintercept = 0, color = "red", linetype = "dashed") +
+  labs(title = "Average Critic vs. Audience Score Gap by Genre",
+       subtitle = "Positive = critics rate higher; Negative = audiences rate higher",
+       x = "Mean Gap (Tomatometer − Audience Score)",
+       y = "Genre")
+```
