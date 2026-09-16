@@ -14,3 +14,50 @@ library(tidyverse)
 
 movies <- read_csv("data/movies.csv")
 ```
+
+```{r}
+movies <- read_csv("data/movies.csv")
+glimpse(movies)
+names(movies)
+```
+
+```{r}
+movies |>
+  summarize(across(everything(), ~sum(is.na(.))))
+```
+
+```{r}
+movies |>
+  filter(!is.na(boxOffice)) |>
+  select(title, boxOffice) |>
+  slice_head(n = 10)
+```
+
+```{r}
+#| cache: true
+
+movies_clean <- movies |>
+  separate_longer_delim(genre, delim = ", ")
+
+movies_clean
+```
+
+```{r}
+movies_clean |>
+  count(genre, sort = TRUE)
+```
+
+```{r}
+movies |>
+  summarize(mean_audience = mean(audienceScore),
+            mean_critic   = mean(tomatoMeter))
+```
+
+```{r}
+movies |>
+  ggplot(aes(x = tomatoMeter)) +
+  geom_histogram(binwidth = 5) +
+  labs(title = "Distribution of Rotten Tomatoes Critic Scores",
+       x = "Tomatometer Score",
+       y = "Count")
+```

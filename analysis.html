@@ -76,7 +76,116 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 29783 Columns: 8
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (4): title, genre, director, boxOffice
+dbl  (3): audienceScore, tomatoMeter, runtimeMinutes
+date (1): releaseDateTheaters
 
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 29,783
+Columns: 8
+$ title               &lt;chr&gt; "Adrift", "Born to Kill", "Leap of Faith: William …
+$ audienceScore       &lt;dbl&gt; 65, 74, 86, 67, 61, 75, 85, 92, 83, 38, 44, 41, 41…
+$ tomatoMeter         &lt;dbl&gt; 69, 83, 93, 50, 32, 100, 97, 89, 88, 0, 50, 22, 0,…
+$ genre               &lt;chr&gt; "Adventure, Drama, Romance", "Crime, Drama", "Docu…
+$ releaseDateTheaters &lt;date&gt; 2018-06-01, 1947-04-30, NA, 2009-12-04, 2011-09-3…
+$ runtimeMinutes      &lt;dbl&gt; 120, 92, 104, 133, 90, 135, 107, 93, 103, 86, 103,…
+$ director            &lt;chr&gt; "Baltasar Kormákur", "Robert Wise", "Alexandre O. …
+$ boxOffice           &lt;chr&gt; "$31.4M", NA, NA, "$199.2K", "$10.5K", NA, NA, "$4…</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "title"               "audienceScore"       "tomatoMeter"        
+[4] "genre"               "releaseDateTheaters" "runtimeMinutes"     
+[7] "director"            "boxOffice"          </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 8
+  title audienceScore tomatoMeter genre releaseDateTheaters runtimeMinutes
+  &lt;int&gt;         &lt;int&gt;       &lt;int&gt; &lt;int&gt;               &lt;int&gt;          &lt;int&gt;
+1     0             0           0     0               10978            154
+# ℹ 2 more variables: director &lt;int&gt;, boxOffice &lt;int&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 10 × 2
+   title                                                           boxOffice
+   &lt;chr&gt;                                                           &lt;chr&gt;    
+ 1 Adrift                                                          $31.4M   
+ 2 Paa                                                             $199.2K  
+ 3 Sarah Palin: You Betcha!                                        $10.5K   
+ 4 A State of Mind                                                 $41.5K   
+ 5 Race the Sun                                                    $1.7M    
+ 6 Paul Blart: Mall Cop                                            $146.3M  
+ 7 Not Without My Daughter                                         $14.0M   
+ 8 Monsoon Wedding                                                 $13.9M   
+ 9 The 100-Year-Old Man Who Climbed Out the Window and Disappeared $923.9K  
+10 Rookie of the Year                                              $53.1M   </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 51,007 × 8
+   title      audienceScore tomatoMeter genre releaseDateTheaters runtimeMinutes
+   &lt;chr&gt;              &lt;dbl&gt;       &lt;dbl&gt; &lt;chr&gt; &lt;date&gt;                       &lt;dbl&gt;
+ 1 Adrift                65          69 Adve… 2018-06-01                     120
+ 2 Adrift                65          69 Drama 2018-06-01                     120
+ 3 Adrift                65          69 Roma… 2018-06-01                     120
+ 4 Born to K…            74          83 Crime 1947-04-30                      92
+ 5 Born to K…            74          83 Drama 1947-04-30                      92
+ 6 Leap of F…            86          93 Docu… NA                             104
+ 7 Leap of F…            86          93 Myst… NA                             104
+ 8 Paa                   67          50 Drama 2009-12-04                     133
+ 9 Sarah Pal…            61          32 Docu… 2011-09-30                      90
+10 Death of …            75         100 Drama NA                             135
+# ℹ 50,997 more rows
+# ℹ 2 more variables: director &lt;chr&gt;, boxOffice &lt;chr&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 34 × 2
+   genre                  n
+   &lt;chr&gt;              &lt;int&gt;
+ 1 Drama              13273
+ 2 Comedy              8132
+ 3 Mystery &amp; thriller  4717
+ 4 Documentary         3904
+ 5 Horror              2720
+ 6 Action              2605
+ 7 Romance             2449
+ 8 Adventure           1958
+ 9 Crime               1584
+10 Fantasy             1364
+# ℹ 24 more rows</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  mean_audience mean_critic
+          &lt;dbl&gt;       &lt;dbl&gt;
+1          62.3        64.4</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="analysis_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 </main>
 <!-- /main column -->
